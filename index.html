@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bao Ngo</title>
+  <meta name="description" content="Bao Ngo — Software Engineer & CS Student">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <canvas id="canvas"></canvas>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ── Fixed HUD ────────────────────────────────────────────── -->
+  <div class="hud" id="hud">
+
+    <header class="hud-logo">BAO NGO</header>
+
+    <nav class="hud-nav">
+      <a href="#about" class="hn-link" data-sec="about">About</a>
+      <a href="#experience" class="hn-link" data-sec="experience">Experience</a>
+      <a href="#projects" class="hn-link" data-sec="projects">Projects</a>
+      <a href="#contact" class="hn-link" data-sec="contact">Contact</a>
+    </nav>
+
+    <div class="hud-bottom" id="hudBottom">
+
+      <div class="time-block">
+        <span class="time-label">LOCAL TIME (ET)</span>
+        <div class="clock">
+          <span id="clock-h">00</span>
+          <span class="colon">:</span>
+          <span id="clock-m">00</span>
+          <div class="ampm-pill"><span id="clock-ampm">AM</span></div>
+        </div>
+      </div>
+
+      <div class="greeting-block">
+        <div class="greeting-wrap">
+          <p class="greeting-text" id="greetingText"></p>
+        </div>
+        <p class="tagline">
+          Systems programmer &amp; full-stack engineer.<br>
+          Building things that run fast and look good.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="hud-foot" id="hudFoot">
+      <div class="hud-stats-row">
+        <span id="hud-res">— × —</span>
+        <span id="hud-fps">— fps</span>
+      </div>
+      <div class="location-row">
+        <span>OBERLIN, OH → COLLEGE PARK, MD</span>
+        <span>CS STUDENT · SOFTWARE ENGINEER</span>
+      </div>
+    </div>
+
+  </div><!-- .hud -->
+
+  <!-- ── Scrollable content ────────────────────────────────────── -->
+  <div class="page-wrap">
+
+    <div id="hero" class="hero-spacer"></div>
+
+    <!-- 01 About -->
+    <section id="about" class="section">
+      <div class="sec-inner">
+        <div class="sec-head">
+          <span class="sec-num">01</span>
+          <h2 class="sec-title">About</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-left">
+            <p class="body-text">
+              I'm a Computer Science &amp; Mathematics student at Oberlin College,
+              and I will join the M.S. CS program at the University of Maryland this Fall 2026.
+            </p>
+            <p class="body-text">
+              I'm interested in computer systems as well as building high-performance systems and cloud-native
+              microservices. Besides, I'm currently exploring low-level systems programming and machine learning.
+            </p>
+            <p class="body-text">
+              I was the CTO of the Oberlin Quantitative Finance Club, and I also was an Ashby Business Scholar.
+            </p>
+
+            <div class="edu-list">
+              <div class="edu-item reveal">
+                <span class="edu-school">University of Maryland — College Park</span>
+                <span class="edu-degree">M.S. Computer Science</span>
+                <span class="edu-date">Expected May 2028</span>
+              </div>
+              <div class="edu-item reveal">
+                <span class="edu-school">Oberlin College</span>
+                <span class="edu-degree">B.A. Computer Science &amp; Mathematics · GPA 3.86</span>
+                <span class="edu-date">Expected May 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-right">
+            <div class="skill-group reveal">
+              <span class="skill-label">Languages</span>
+              <div class="skill-tags">
+                <span>C++</span><span>C</span><span>C#</span><span>Java</span><span>Python</span>
+              </div>
+            </div>
+            <div class="skill-group reveal">
+              <span class="skill-label">Data &amp; Infra</span>
+              <div class="skill-tags">
+                <span>QuestDB</span><span>Kafka</span><span>RabbitMQ</span>
+                <span>Grafana</span><span>Prometheus</span>
+              </div>
+            </div>
+            <div class="skill-group reveal">
+              <span class="skill-label">Cloud &amp; DevOps</span>
+              <div class="skill-tags">
+                <span>Azure</span><span>Docker</span><span>Kubernetes</span>
+                <span>CI/CD</span><span>Ansible</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Experience -->
+    <section id="experience" class="section">
+      <div class="sec-inner">
+        <div class="sec-head">
+          <span class="sec-num">02</span>
+          <h2 class="sec-title">Experience</h2>
+        </div>
+
+        <div class="exp-list">
+
+          <div class="exp-item reveal">
+            <div class="exp-meta">
+              <span class="exp-period">Sep 2025 — Present</span>
+              <span class="exp-badge">Leadership</span>
+            </div>
+            <div class="exp-body">
+              <h3 class="exp-role">Chief Technology Officer</h3>
+              <p class="exp-company">Oberlin Quantitative Finance Club</p>
+              <ul class="exp-bullets">
+                <li>Engineered a real-time market data pipeline in C++ using Kafka and Alpaca's WebSocket API, computing
+                  6 microstructure signals across 2M+ ticks/day with end-to-end p99 latency under 200ms.</li>
+                <li>Utilised QuestDB for high-throughput storage and Grafana for live metric visualisation across
+                  symbols.</li>
+                <li>Instrumented Prometheus histograms tracking p50/p95/p99 latency and failed message rates with
+                  automated alerting.</li>
+              </ul>
+              <p class="exp-stack">C++ · Kafka · QuestDB · Grafana · Prometheus</p>
+            </div>
+          </div>
+
+          <div class="exp-item reveal">
+            <div class="exp-meta">
+              <span class="exp-period">May — Aug 2025</span>
+              <span class="exp-badge">Internship</span>
+            </div>
+            <div class="exp-body">
+              <h3 class="exp-role">Software Engineer Intern</h3>
+              <p class="exp-company">Microsoft</p>
+              <ul class="exp-bullets">
+                <li>Engineered a real-time microservice system in C# with RabbitMQ and Azure Kubernetes Service to query
+                  and auto-diagnose 10,000+ underperforming Windows agents every 6 hours, cutting diagnostic time by
+                  99%.</li>
+                <li>Secured end-to-end communication across all system components via mTLS connections to the RabbitMQ
+                  cluster.</li>
+                <li>Deployed KEDA-driven autoscaling tied to RabbitMQ queue depth, reducing resource consumption by 90%
+                  and cloud costs by 83%.</li>
+              </ul>
+              <p class="exp-stack">C# · RabbitMQ · Azure · Kubernetes · KEDA · mTLS</p>
+            </div>
+          </div>
+
+          <div class="exp-item reveal">
+            <div class="exp-meta">
+              <span class="exp-period">Apr — Aug 2024</span>
+              <span class="exp-badge">Internship</span>
+            </div>
+            <div class="exp-body">
+              <h3 class="exp-role">Software Engineer Intern</h3>
+              <p class="exp-company">Community Hub</p>
+              <ul class="exp-bullets">
+                <li>Extended open-source WLED firmware in C++ on ESP32-based energy-display devices to implement
+                  automatic campus Wi-Fi reconnection after scheduled 6-hour restarts.</li>
+                <li>Built a Python + Bokeh monitoring system to visualise Wi-Fi reconnection behaviour via real-time
+                  latency graphs, cutting manual verification time by 70%.</li>
+              </ul>
+              <p class="exp-stack">C++ · ESP32 · Python · Bokeh</p>
+            </div>
+          </div>
+
+          <div class="exp-item reveal">
+            <div class="exp-meta">
+              <span class="exp-period">Dec 2023 — Dec 2024</span>
+              <span class="exp-badge">Research</span>
+            </div>
+            <div class="exp-body">
+              <h3 class="exp-role">Research Assistant</h3>
+              <p class="exp-company">West Chester University</p>
+              <ul class="exp-bullets">
+                <li>Led a team of 5 to build an automated evaluation framework in Python collecting 3,000+ Kattis
+                  problems, auto-generating solutions via OpenAI API for MLP model training.</li>
+                <li>Model predicts ChatGPT's performance with 90% accuracy on easy problems and 79% on hard problems.
+                </li>
+              </ul>
+              <p class="exp-stack">Python · OpenAI API · Machine Learning</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Projects -->
+    <section id="projects" class="section">
+      <div class="sec-inner">
+        <div class="sec-head">
+          <span class="sec-num">03</span>
+          <h2 class="sec-title">Projects &amp; Publications</h2>
+        </div>
+
+        <div class="proj-grid">
+          <div class="proj-card reveal">
+            <div class="proj-header">
+              <h3 class="proj-name">SmolMS</h3>
+              <span class="proj-date">Jan 2025</span>
+            </div>
+            <p class="proj-desc">
+              Full-stack SMTP-based mail server built from scratch in C, implementing a
+              4-component architecture (MUA, MSA, MTA, MDA) with end-to-end email submission,
+              routing, and delivery. Features a thread-safe queue with mutex/condition-variable
+              synchronisation for concurrent client handling, TCP socket communication across
+              all 4 components, and POSIX signal handling for graceful shutdown.
+            </p>
+            <div class="proj-tags">
+              <span>C</span><span>Socket Programming</span><span>Multithreading</span><span>POSIX</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-block">
+          <h3 class="pub-heading">Publications</h3>
+          <div class="pub-item reveal">
+            <span class="pub-venue">IEEE International Conference on Big Data, 2024</span>
+            <p class="pub-text">Nguyen Ho, James May, <strong>Bao Ngo</strong>, Jack Formato, Linh Ngo, Van Long Ho,
+              Hoang Bui — "Predicting ChatGPT's Ability to Solve Complex Programming Challenges."</p>
+          </div>
+          <div class="pub-item reveal">
+            <span class="pub-venue">CCSC Eastern Region 40th Annual Conference, 2024</span>
+            <p class="pub-text"><strong>Bao Ngo</strong>, Jack Formato, James May, Nguyen Ho, Hoang Bui, Linh Ngo —
+              "FACE: a Framework for AI-driven Coding Generation Evaluation."</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 04 Contact -->
+    <section id="contact" class="section section-last">
+      <div class="sec-inner">
+        <div class="sec-head">
+          <span class="sec-num">04</span>
+          <h2 class="sec-title">Contact</h2>
+        </div>
+
+        <p class="contact-sub">Let's build something together.</p>
+
+        <ul class="contact-links">
+          <li class="reveal">
+            <a href="mailto:tranbaoelie@gmail.com" class="clink">
+              <span class="cl-label">Email</span>
+              <span class="cl-value">tranbaoelie@gmail.com</span>
+              <span class="cl-arr">→</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="https://github.com/BAOELIETRAN" target="_blank" rel="noopener" class="clink">
+              <span class="cl-label">GitHub</span>
+              <span class="cl-value">github.com/BAOELIETRAN</span>
+              <span class="cl-arr">→</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="https://linkedin.com/in/baongo85" target="_blank" rel="noopener" class="clink">
+              <span class="cl-label">LinkedIn</span>
+              <span class="cl-value">linkedin.com/in/baongo85</span>
+              <span class="cl-arr">→</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="tel:4406747845" class="clink">
+              <span class="cl-label">Phone</span>
+              <span class="cl-value">440-674-7845</span>
+              <span class="cl-arr">→</span>
+            </a>
+          </li>
+        </ul>
+
+        <p class="footer-copy">Bao Ngo &copy; 2025 &mdash; Designed &amp; built from scratch.</p>
+
+      </div>
+    </section>
+
+  </div><!-- .page-wrap -->
+
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
